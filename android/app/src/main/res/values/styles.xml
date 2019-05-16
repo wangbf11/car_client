@@ -3,6 +3,8 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
+        <!-- 添加如下一行代码,这样就可以设置全局的textinput 光标色 -->
+        <item name="colorControlActivated">@color/blue</item>
     </style>
 
 </resources>

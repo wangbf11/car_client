@@ -17,121 +17,26 @@ import {
 
 import image from "./assets/image"
 
-import LoginScreen from './screen/login/phone'
+import LoginScreen from './screen/login/phone/LoginScreen'
 
-import CodeScreen from './screen/login/code'
+import ForgetPasswordScreen from './screen/login/code/ForgetPasswordScreen'
 
 import WelcomeScreen from './screen/welcome/WelcomeScreen'
-import HomeScreen from './screen/home/HomeScreen'
-import MessageScreen from './screen/messages/MyMessageScreen'
-import MyScreen from './screen/mine/MineScreen'
 import BindPhoneScreen from './screen/login/bindphone'
-import BindCodeScreen from './screen/login/bindcode'
+import ResetPassword from './screen/login/resetpassword/ResetPassword'
 import BackTwiceExitApp from './components/BackTwiceExitApp'
 import Toast from './components/Toast'
 import Loading from './components/Loading'
 import NavigationService from './components/NavigationService';
 import CodePush from 'react-native-code-push'
-
-const setIcon = function ({ ...set }) {
-    return (
-        <Image
-            source={set.focused ? set.selectSource : set.source}
-            style={{
-                width: 20,
-                height: 20
-            }}
-        />
-    )
-}
-
-const setMyIcon = function ({ ...set }) {
-    return (
-        <Image
-            source={set.focused ? set.selectSource : set.source}
-            style={{
-                width: 42,
-                height: 40,
-                marginTop: -18
-            }}
-        />
-    )
-}
-
-const tabBar = createBottomTabNavigator(
-    {
-        Home: {
-            screen: HomeScreen,
-            navigationOptions: navigation => {
-                return {
-                    tabBarLabel: "找大夫",
-                    tabBarIcon: state => {
-                        return setIcon({
-                            ...state,
-                            source: image.home_g,
-                            selectSource: image.home_c,
-                        })
-                    }
-                }
-            }
-        },
-        message: {
-            screen: MessageScreen,
-            navigationOptions: navigation => {
-                return {
-                    tabBarLabel: "消息",
-                    tabBarIcon: state => {
-                        return setIcon({
-                            ...state,
-                            source: image.video_g,
-                            selectSource: image.video_c
-                        })
-                    }
-                }
-            }
-        },
-        My: {
-            screen: MyScreen,
-            navigationOptions: navigation => {
-                return {
-                    tabBarLabel: "我的",
-                    tabBarIcon: state => {
-                        return setMyIcon({
-                            ...state,
-                            source: image.my_g,
-                            selectSource: image.my_c
-                        })
-                    }
-                }
-            }
-        }
-    },
-    {
-        tabBarOptions: {
-            activeTintColor: "#FFCD07",
-            inactiveTintColor: "#808080",
-            labelStyle: {
-                fontSize: 10,
-            },
-            // style: {
-            //     marginLeft: 10,
-            //     marginRight: 10
-            // },//位置是可以设置的
-            // indicatorStyle: {backgroundColor: "red" } // 设置线无效
-        }
-    }
-)
-
+import {MyDrawer} from './screen/drawer'
 const navigator = createStackNavigator(
     {
         welcome: {
             screen: WelcomeScreen
         },
-        RootTab: {
-            screen: tabBar,
-            navigationOptions: {
-                gesturesEnabled: false
-            }
+        Drawer: {
+            screen: MyDrawer
         },
         login: {
             screen: LoginScreen,
@@ -139,8 +44,8 @@ const navigator = createStackNavigator(
                 gesturesEnabled: false
             }
         },
-        code: {
-            screen: CodeScreen,
+        ForgetPassword: {
+            screen: ForgetPasswordScreen,
             navigationOptions: {
                 gesturesEnabled: false
             }
@@ -148,8 +53,8 @@ const navigator = createStackNavigator(
         bindphone: {
             screen: BindPhoneScreen
         },
-        bindcode: {
-            screen: BindCodeScreen
+        ResetPassword: {
+            screen: ResetPassword
         },
     },
     {

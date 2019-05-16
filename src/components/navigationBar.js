@@ -71,9 +71,13 @@ class NavigationBar extends PureComponent {
     }
 
     goBack() {
-        this.props.navigation.dispatch(StackActions.pop({
-            n: 1,
-        }))
+        if (this.props.isDrawer) {
+            this.props.isDrawer();//如果方法存在就直接调用
+        }else {
+            this.props.navigation.dispatch(StackActions.pop({
+                n: 1,
+            }));
+        }
     }
 
     _rightOnPress() {

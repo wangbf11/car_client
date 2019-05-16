@@ -371,7 +371,7 @@ class WelcomeScreen extends PureComponent {
                 index: 0,
                 actions: [
                     NavigationActions.navigate({
-                        routeName: "login"
+                        routeName: "Drawer"
                     })
                 ]
             })
