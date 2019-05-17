@@ -41,45 +41,8 @@ class WelcomeScreen extends PureComponent {
             key: LoginToken,
         }).then(ret => {
             this.setState({ token: ret })
-            this.upDeviceInfo(ret)
         }).catch(err => {
             this.setState({ token: "" })
-            this.upDeviceInfo("")
-        })
-    }
-
-    upDeviceInfo(token) {
-        let device_name = DeviceInfo.getBrand()
-        let device_model = DeviceInfo.getDeviceName()
-        let device_version = DeviceInfo.getSystemVersion()
-        let uuid = DeviceInfo.getUniqueID()
-        let uuid_type = Platform.OS == "ios" ? "2" : "1"
-        let parmas
-        if (token == "") {
-            parmas = {
-                device_name: device_name,
-                device_model: device_model,
-                device_version: device_version,
-                uuid: uuid,
-                uuid_type: uuid_type,
-            }
-        }
-        else {
-            parmas = {
-                device_name: device_name,
-                device_model: device_model,
-                device_version: device_version,
-                uuid: uuid,
-                uuid_type: uuid_type,
-                token: token
-            }
-        }
-        this.props.upDeviceInfo(parmas).then(res => {
-            if (res && res.error_code == 0) {
-                let data = res.data
-                this.saveArticleTimeToStorage(data.article_time)
-                this.saveVideoTimeToStorage(data.video_time)
-            }
         })
     }
 
