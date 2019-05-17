@@ -20,6 +20,7 @@ import { PasswordModal } from 'react-native-pay-password'
 import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
 import { FlatGrid } from 'react-native-super-grid';
 import ItemView from "../../components/ItemView";
+import NavigationService from "../../components/NavigationService";
 class HomeScreen extends PureComponent {
     constructor(props) {
         super(props);
@@ -27,12 +28,27 @@ class HomeScreen extends PureComponent {
             phoneText:"",
             password:"",
             index : 0, //支付方式
+            token: ""
         };
+    }
+    componentWillUnmount() {
+        this.getDataFromStorage()//读取token
     }
 
     componentDidMount() {
 
     }
+    //读取token
+    getDataFromStorage = async () => {
+        global.storage.load({
+            key: LoginToken,
+        }).then(ret => {
+            this.setState({ token: ret })
+        }).catch(err => {
+            this.setState({ token: "" })
+        })
+    }
+
     render() {
         return (
             <View style={{ flex: 1, backgroundColor: "#fff" }}>
@@ -141,7 +157,11 @@ class HomeScreen extends PureComponent {
 
     //个人设置
     personSetting() {
-        this.refs.modal.show();
+        if (this.state.token == "") {
+            NavigationService.navigate("login")
+        }else {
+            this.refs.modal.show();
+        }
     }
     //吊起支付
     payMoney() {

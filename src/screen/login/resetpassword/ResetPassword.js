@@ -82,7 +82,7 @@ class ResetPassword extends PureComponent {
 
     resetPassword() {
         clearInterval(this.interval)
-        NavigationService.navigate("")
+        NavigationService.reset('Drawer');
         return
 
     }
