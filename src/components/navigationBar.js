@@ -12,8 +12,6 @@ import { NavigationActions, StackActions } from "react-navigation"
 
 import {
     screenWidth,
-    unitWidth,
-    titleHeight,
     statusBarHeight
 } from '../util/AdapterUtil'
 

@@ -100,14 +100,6 @@ class ForgetPasswordScreen extends PureComponent {
                     </TouchableOpacity>
                 </KeyboardAwareScrollView>
                 <View style={{ height: safeAreaBottomHeight }} />
-                <Toast
-                    ref="toast"
-                    style={{ backgroundColor: '#737373' }}
-                    position='center'
-                    fadeInDuration={750}
-                    fadeOutDuration={1000}
-                    textStyle={{ color: '#fff', fontSize: 15, marginLeft: 15, marginRight: 15, marginTop: 10, marginBottom: 10 }}
-                />
             </View>
         )
     }

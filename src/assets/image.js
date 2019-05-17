@@ -7,6 +7,7 @@ import my_g from './images/1024_my_g_42x40.png'
 import back_b from './images/1024_back_b_19x17.png'
 import back_w from './images/1024_back_w_19x17.png'
 import account_error from './images/1024_account_error_212x147.png'
+import Avatar from './images/avatar.png'
 
 export default {
     account_error: account_error,
@@ -18,5 +19,6 @@ export default {
     video_g: video_g,
     my_c: my_c,
     my_g: my_g,
+    avatar_default: Avatar,
 }
 

@@ -22,7 +22,6 @@ import LoginScreen from './screen/login/phone/LoginScreen'
 import ForgetPasswordScreen from './screen/login/code/ForgetPasswordScreen'
 
 import WelcomeScreen from './screen/welcome/WelcomeScreen'
-import BindPhoneScreen from './screen/login/bindphone'
 import ResetPassword from './screen/login/resetpassword/ResetPassword'
 import BackTwiceExitApp from './components/BackTwiceExitApp'
 import Toast from './components/Toast'
@@ -49,9 +48,6 @@ const navigator = createStackNavigator(
             navigationOptions: {
                 gesturesEnabled: false
             }
-        },
-        bindphone: {
-            screen: BindPhoneScreen
         },
         ResetPassword: {
             screen: ResetPassword
